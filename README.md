@@ -1,118 +1,76 @@
-Multithreaded CPU Scheduler Simulator
+# Multithreaded CPU Scheduler Simulator
 
-A C++ project that simulates core Operating System CPU scheduling algorithms using multithreading and synchronization primitives. The project focuses on process scheduling logic, concurrency, and performance analysis, implemented using modern C++ (C++17).
+A C++ project that simulates core CPU scheduling algorithms to demonstrate Operating System concepts such as process scheduling, concurrency, and performance evaluation.
 
-Project Overview
+---
 
-This simulator models how an operating system schedules processes on a CPU using classic scheduling strategies. It demonstrates how different algorithms impact system performance metrics such as waiting time and turnaround time.
+## Overview
 
-The implementation is platform-independent and focuses on operating system concepts rather than OS-specific internals.
+This project models how an operating system schedules processes on a CPU using classic scheduling strategies. It compares different algorithms by analyzing key performance metrics like waiting time and turnaround time.
 
-Scheduling Algorithms Implemented
-Round Robin Scheduling
+The implementation focuses on **OS fundamentals and multithreading**, without relying on any OS-specific internals.
 
-Time-sharing based scheduling
+---
 
-Fixed time quantum
+## Scheduling Algorithms
 
-Simulates preemption and fair CPU allocation
+- **Round Robin Scheduling**
+  - Time-sliced execution using a fixed time quantum
+  - Ensures fair CPU sharing among processes
 
-Priority Scheduling
+- **Priority Scheduling**
+  - Processes executed based on priority
+  - Lower value indicates higher priority
+  - Useful for latency-sensitive workloads
 
-Processes executed based on priority
+---
 
-Lower numerical value indicates higher priority
+## Concepts Covered
 
-Suitable for latency-sensitive workloads
+- CPU Scheduling (Operating Systems)
+- Multithreading using `std::thread`
+- Synchronization using `std::mutex` and `std::condition_variable`
+- Shared resource coordination
+- Performance metrics:
+  - Waiting Time
+  - Turnaround Time
+- Comparative analysis of scheduling strategies
 
-Key Concepts Demonstrated
+---
 
-Operating Systems: CPU Scheduling
+## Sample Results
 
-Multithreading using std::thread
+For the same workload, the simulator produced the following results:
 
-Synchronization using std::mutex and std::condition_variable
+**Round Robin**
+- Average Waiting Time: 10 units
+- Average Turnaround Time: 15.5 units
 
-Shared resource coordination (CPU availability)
+**Priority Scheduling**
+- Average Waiting Time: 6.25 units
+- Average Turnaround Time: 11.75 units
 
-Performance metric computation:
+This shows a **37.5% reduction in average waiting time** using Priority Scheduling compared to Round Robin.
 
-Waiting Time
+---
 
-Turnaround Time
+## Tech Stack
 
-Comparative analysis of scheduling strategies
+- Language: C++ (C++17)
+- Concurrency: C++ Standard Library Threads
+- Compiler: GCC
+- Environment: MSYS2 MinGW64 (Windows)
 
-Sample Output Metrics
+---
 
-The simulator computes and compares scheduler performance:
+## Build and Run
 
-Round Robin
+### Requirements
+- C++17 compatible compiler
+- Thread support enabled
 
-Average Waiting Time: 10 units
-
-Average Turnaround Time: 15.5 units
-
-Priority Scheduling
-
-Average Waiting Time: 6.25 units
-
-Average Turnaround Time: 11.75 units
-
-This reflects a 37.5% reduction in average waiting time under Priority Scheduling compared to Round Robin for the same workload.
-
-Tech Stack
-
-Language: C++ (C++17)
-
-Concurrency: C++ Standard Library Threads
-
-Compiler: GCC
-
-Environment: MSYS2 MinGW64 (Windows)
-
-How to Build and Run
-Prerequisites
-
-C++17 compatible compiler (GCC / Clang / MSVC)
-
-Thread support enabled
-
-Build
+### Compile
+```bash
 g++ -std=c++17 scheduler.cpp -o scheduler -pthread
 
-Run
-./scheduler
 
-Project Structure
-CPU_Scheduler_Simulator/
-│
-├── scheduler.cpp   # Main implementation
-├── README.md       # Project documentation
-└── .vscode/        # Optional editor configuration
-
-Learning Outcomes
-
-This project strengthened my understanding of:
-
-CPU scheduling mechanisms beyond theoretical concepts
-
-Practical multithreading and synchronization in C++
-
-Performance evaluation and trade-off analysis
-
-Designing clean and modular system simulations
-
-Possible Extensions
-
-Add First Come First Serve (FCFS) scheduling
-
-Implement aging to prevent starvation
-
-Simulate I/O wait and CPU idle time
-
-Visualize scheduling timelines
-
-License
-
-This project is intended for academic and learning purposes.
